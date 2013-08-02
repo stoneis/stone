@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 데이터베이스 접속 정보 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/stone</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">1234</property>
+		<property name="connection.pool_size">1</property>
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+		<!-- 콘솔에 찍히는 로그들을 표시하고, 보기 좋은 포맷으로 출력한다. -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<!-- 매핑 파일 등록 -->
+		<mapping resource="hibernate/hbm/board.xml"/>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	
+	<!-- 조건문 -->
+	<sql id="where">
+		<where>
+		<if test="searchText != ''">
+			<if test="searchType == 'ALL'">
+			SUBJECT LIKE CONCAT('%',#{searchText},'%') OR WRITER LIKE CONCAT('%',#{searchText},'%') OR CONTENTS LIKE CONCAT('%',#{searchText},'%')
+			</if>
+			<if test="searchType == 'SUBJECT'">
+			SUBJECT LIKE CONCAT('%',#{searchText},'%')
+			</if>
+			<if test="searchType == 'WRITER'">
+			WRITER LIKE CONCAT('%',#{searchText},'%')
+			</if>
+			<if test="searchType == 'CONTENTS'">
+			CONTENTS LIKE CONCAT('%',#{searchText},'%')
+			</if>
+		</if> 
+		</where>
+	</sql>
+
+	<!-- 게시판 목록 조회 -->
+	<select id="selectList" parameterType="BoardModel" resultType="BoardModel">
+		SELECT
+			NUM
+		   ,SUBJECT
+		   ,WRITER
+		   ,CONTENTS
+		   ,IP
+		   ,HIT
+		   ,REG_DATE as regDate
+		   ,MOD_DATE as modDate
+		FROM
+			BOARD
+		<include refid="where"/>
+		ORDER BY NUM DESC
+		LIMIT #{startIndex}, #{listCount}
+	</select>
+	
+	<!-- 게시판 수 조회 -->
+	<select id="selectCount" parameterType="BoardModel" resultType="int">
+		SELECT COUNT(NUM) FROM BOARD
+		<include refid="where"/>
+	</select>
+	
+	<!-- 게시판 상세 조회 -->
+	<select id="select" parameterType="BoardModel" resultType="BoardModel">
+		SELECT
+			NUM
+		   ,SUBJECT
+		   ,WRITER
+		   ,CONTENTS
+		   ,IP
+		   ,HIT
+		   ,REG_DATE as regDate
+		   ,MOD_DATE as modDate
+		FROM
+			BOARD
+		WHERE
+			NUM = #{num}
+	</select>
+	
+	<!-- 게시판 등록 -->
+	<insert id="insert">
+		INSERT INTO BOARD (
+			SUBJECT
+		   ,WRITER
+		   ,CONTENTS
+		   ,IP
+		   ,HIT
+		   ,REG_DATE
+		   ,MOD_DATE
+		) VALUES (
+			#{subject}
+		   ,#{writer}
+		   ,#{contents}
+		   ,#{ip}
+		   ,0
+		   ,NOW()
+		   ,NOW()
+		)
+	</insert>
+	
+	<!-- 게시판 수정 -->
+	<update id="update">
+		UPDATE BOARD SET 
+			SUBJECT		= #{subject}
+		   ,WRITER		= #{writer}
+		   ,CONTENTS	= #{contents}
+		   ,IP			= #{ip}
+		   ,MOD_DATE	= NOW()
+		WHERE
+			NUM = #{num}
+	</update>
+
+	<!-- 게시판 조회수 증가 -->
+	<update id="updateHit">
+		UPDATE BOARD SET HIT = HIT + 1 WHERE NUM = #{num}
+	</update>
+
+	<!-- 게시판 삭제 -->
+	<delete id="delete">
+		DELETE FROM BOARD WHERE NUM = #{num}
+	</delete>
+
+</mapper>
