@@ -3,7 +3,7 @@
 <mapper namespace="board">
 	
 	<!-- 조건문 -->
-	<sql id="where">
+	<sql id="where"> 
 		<where>
 		<if test="searchText != ''">
 			<if test="searchType == 'ALL'">
