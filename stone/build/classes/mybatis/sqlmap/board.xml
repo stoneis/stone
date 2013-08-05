@@ -3,7 +3,7 @@
 <mapper namespace="board">
 	
 	<!-- 조건문 -->
-	<sql id="where">
+	<sql id="where"> 
 		<where>
 		<if test="searchText != ''">
 			<if test="searchType == 'ALL'">
@@ -18,7 +18,7 @@
 			<if test="searchType == 'CONTENTS'">
 			CONTENTS LIKE CONCAT('%',#{searchText},'%')
 			</if>
-		</if> 
+		</if>    
 		</where>
 	</sql>
 
