@@ -16,7 +16,7 @@ import model.board.BoardModel;
  * @author stoneis.pe.kr
  */
 public class BoardDAO implements BoardDAOImpl {
-	// 사용할 객체 초기화
+	// 사용할 객체 초기화   
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
