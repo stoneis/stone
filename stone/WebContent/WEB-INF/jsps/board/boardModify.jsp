@@ -10,7 +10,7 @@
 <style type="text/css">
 	* {font-size: 9pt;}
 	p {width: 600px; text-align: right;}
-	table tbody tr th {background-color: gray;} 법
+	table tbody tr th {background-color: gray;}
 </style>
 <script type="text/javascript">
 	function goUrl(url) {
