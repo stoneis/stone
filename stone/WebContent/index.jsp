@@ -8,7 +8,7 @@
 </head>
 <body>
 	<p>
-		<a href="<%=request.getContextPath()%>/board/boardList.jsp">2013.06 게시판 만들기</a>
+		<a href="<%=request.getContextPath() %>/board/boardList.jsp">2013.06 게시판 만들기</a>
 	</p>
 </body>
 </html>
