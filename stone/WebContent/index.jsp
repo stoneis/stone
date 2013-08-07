@@ -7,7 +7,7 @@
 <title>게시판 만들기</title>
 </head>
 <body>
-	<p> TEST
+	<p> TEST--
 		<a href="<%=request.getContextPath() %>/board/boardList.jsp">2013.06 게시판 만들기</a>
 	</p>
 </body>
