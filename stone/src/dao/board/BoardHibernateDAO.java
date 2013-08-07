@@ -36,7 +36,7 @@ public class BoardHibernateDAO implements BoardDAOImpl {
 	
 	/**
 	 * 게시판 목록 조회
-	 * @param boardModel
+	 * @param boardModel ..
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
