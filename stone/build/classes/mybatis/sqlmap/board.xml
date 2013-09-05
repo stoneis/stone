@@ -18,7 +18,7 @@
 			<if test="searchType == 'CONTENTS'">
 			CONTENTS LIKE CONCAT('%',#{searchText},'%')
 			</if>
-		</if>    
+		</if> 
 		</where>
 	</sql>
 

@@ -7,16 +7,15 @@
 		<welcome-file>index.htm</welcome-file>
 	</welcome-file-list>
 	
-	<!-- 
-	<servlet>
-		<servlet-name>boardListServlet</servlet-name>
-		<servlet-class>board.BoardListServlet</servlet-class>
-	</servlet>
-  
-	<servlet-mapping>
-		<servlet-name>boardListServlet</servlet-name>
-		<url-pattern>/board/boardListServlet</url-pattern>
-	</servlet-mapping>
-	-->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+	</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/struts2/*</url-pattern>
+	</filter-mapping>
 	
 </web-app>

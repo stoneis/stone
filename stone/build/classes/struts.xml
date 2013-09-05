@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 개발모드 (오류메시지 표시) -->
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/struts2/board" extends="struts-default">
+		
+		<!-- 인터셉터 설정 -->
+		<interceptors>
+			<interceptor name="sampleInterceptor" class="struts2.board.interceptors.SampleInterceptor"/>
+		</interceptors>
+	
+		<!-- 디폴트 액션 -->
+        <default-action-ref name="sampleAction" />
+		<!-- 전역 액션설정 -->
+        <global-results>
+            <result name="error">/WEB-INF/jsps/error/error.jsp</result>
+        </global-results>
+		<!-- 예외발생시 액션 보내기 -->
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+        <!-- 샘플 페이지 -->
+		<action name="sampleAction" class="struts2.board.action.SampleAction">
+			<interceptor-ref name="sampleInterceptor"/>
+			<result name="success">/WEB-INF/jsps/board_struts2/sample.jsp</result>
+		</action>
+        <!-- 게시판 목록 -->
+		<action name="boardListAction" class="struts2.board.action.BoardListAction">
+			<result name="success">/WEB-INF/jsps/board_struts2/boardList.jsp</result>
+		</action>
+        <!-- 게시판 보기 -->
+		<action name="boardViewAction" class="struts2.board.action.BoardViewAction">
+			<result name="success">/WEB-INF/jsps/board_struts2/boardView.jsp</result>
+		</action>
+        <!-- 게시판 삭제 -->
+		<action name="boardDeleteAction" class="struts2.board.action.BoardDeleteAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">boardListAction</param>
+				<param name="pageNum">${boardModel.pageNum}</param>
+				<param name="searchType">${boardModel.searchType}</param>
+				<param name="searchText">${boardModel.searchText}</param>
+			</result>
+		</action>
+        <!-- 게시판 등록 폼 or 등록 처리 -->
+		<action name="boardWriteFormAction" class="struts2.board.action.BoardWriteAction" method="form">
+			<result name="success">/WEB-INF/jsps/board_struts2/boardWrite.jsp</result>
+		</action>
+		<action name="boardWriteAction" class="struts2.board.action.BoardWriteAction">
+			<result name="success" type="redirectAction">boardListAction</result>
+		</action>
+        <!-- 게시판 수정 폼 or 수정 처리 -->
+		<action name="boardModifyFormAction" class="struts2.board.action.BoardModifyAction" method="form">
+			<result name="success">/WEB-INF/jsps/board_struts2/boardModify.jsp</result>
+		</action>
+		<action name="boardModifyAction" class="struts2.board.action.BoardModifyAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">boardViewAction</param>
+				<param name="num">${boardModel.num}</param>
+				<param name="pageNum">${boardModel.pageNum}</param>
+				<param name="searchType">${boardModel.searchType}</param>
+				<param name="searchText">${boardModel.searchText}</param>
+			</result>
+		</action>
+		
+    </package>
+
+</struts>
