@@ -18,7 +18,7 @@ import dao.board.BoardHibernateDAO;
  * @since 2013.07.09
  * @author stoneis.pe.kr
  */
-@WebServlet("/board/boardViewServlet")
+@WebServlet("/servlet/board/boardView")
 public class BoardViewServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;

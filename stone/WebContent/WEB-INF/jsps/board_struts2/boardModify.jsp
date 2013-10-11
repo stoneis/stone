@@ -33,7 +33,7 @@
 </script>
 </head>
 <body>
-	<s:form name="boardModifyForm" action="boardModifyAction" method="post" onsubmit="return boardModifyCheck();" theme="simple">
+	<s:form name="boardModifyForm" action="boardModify" method="post" onsubmit="return boardModifyCheck();" theme="simple">
 	<s:hidden name="num" value="%{num}" />
 	<s:hidden name="pageNum" value="%{pageNum}" />
 	<s:hidden name="searchType" value="%{searchType}" />
@@ -68,7 +68,7 @@
 		</tbody>
 	</table>
 	<p>
-		<input type="button" value="목록" onclick="goUrl('boardListAction?pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}');" />
+		<input type="button" value="목록" onclick="goUrl('boardList?pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}');" />
 		<input type="submit" value="글수정" />
 	</p>
 	</s:form>

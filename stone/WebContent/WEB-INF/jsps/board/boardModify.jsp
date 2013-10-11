@@ -34,7 +34,7 @@
 </script>
 </head>
 <body>
-	<form name="boardModifyForm" action="<c:url value="/board/boardModifyServlet" />" method="post" onsubmit="return boardModifyCheck();">
+	<form name="boardModifyForm" action="<c:url value="boardModify" />" method="post" onsubmit="return boardModifyCheck();">
 	<input type="hidden" name="num" value="<c:out value="${boardModel.num}" />" />
 	<input type="hidden" name="pageNum" value="<c:out value="${boardModel.pageNum}" />" />
 	<input type="hidden" name="searchType" value="<c:out value="${boardModel.searchType}" />" />
@@ -65,7 +65,7 @@
 		</tbody>
 	</table>
 	<p>
-		<input type="button" value="목록" onclick="goUrl('<c:url value="/board/boardListServlet?pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />');" />
+		<input type="button" value="목록" onclick="goUrl('<c:url value="boardList?pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />');" />
 		<input type="submit" value="글수정" />
 	</p>
 	</form>

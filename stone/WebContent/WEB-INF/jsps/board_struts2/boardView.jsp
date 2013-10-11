@@ -48,9 +48,9 @@
 		</tbody>
 	</table>
 	<p class="btn_align">
-		<input type="button" value="목록" onclick="goUrl('boardListAction?pageNum=${pageNum}&amp;searchType=${searchType}&amp;searchText=${searchText}');" />
-		<input type="button" value="수정" onclick="goUrl('boardModifyFormAction?num=${num}&pageNum=${pageNum}&amp;searchType=${searchType}&amp;searchText=${searchText}');" />
-		<input type="button" value="삭제" onclick="deleteCheck('boardDeleteAction?num=${num}&pageNum=${pageNum}&amp;searchType=${searchType}&amp;searchText=${searchText}');" />
+		<input type="button" value="목록" onclick="goUrl('boardList?pageNum=${pageNum}&amp;searchType=${searchType}&amp;searchText=${searchText}');" />
+		<input type="button" value="수정" onclick="goUrl('boardModifyForm?num=${num}&pageNum=${pageNum}&amp;searchType=${searchType}&amp;searchText=${searchText}');" />
+		<input type="button" value="삭제" onclick="deleteCheck('boardDelete?num=${num}&pageNum=${pageNum}&amp;searchType=${searchType}&amp;searchText=${searchText}');" />
 	</p>
 </body>
 </html>

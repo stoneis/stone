@@ -49,9 +49,9 @@
 		</tbody>
 	</table>
 	<p class="btn_align">
-		<input type="button" value="목록" onclick="goUrl('<c:url value="/board/boardListServlet?pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />');" />
-		<input type="button" value="수정" onclick="goUrl('<c:url value="/board/boardModifyServlet?num=${boardModel.num}&pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />');" />
-		<input type="button" value="삭제" onclick="deleteCheck('<c:url value="/board/boardDeleteServlet?num=${boardModel.num}&pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />');" />
+		<input type="button" value="목록" onclick="goUrl('<c:url value="boardList?pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />');" />
+		<input type="button" value="수정" onclick="goUrl('<c:url value="boardModify?num=${boardModel.num}&pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />');" />
+		<input type="button" value="삭제" onclick="deleteCheck('<c:url value="boardDelete?num=${boardModel.num}&pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />');" />
 	</p>
 </body>
 </html>

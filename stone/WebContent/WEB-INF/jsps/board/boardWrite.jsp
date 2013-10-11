@@ -34,7 +34,7 @@
 </script>
 </head>
 <body>
-	<form name="boardWriteForm" action="<c:url value="/board/boardWriteServlet" />" method="post" onsubmit="return boardWriteCheck();">
+	<form name="boardWriteForm" action="<c:url value="boardWrite" />" method="post" onsubmit="return boardWriteCheck();">
 	<table border="1" summary="게시판 등록 폼">
 		<caption>게시판 등록 폼</caption>
 		<colgroup>
@@ -61,7 +61,7 @@
 		</tbody>
 	</table>
 	<p>
-		<input type="button" value="목록" onclick="goUrl('<c:url value="/board/boardListServlet" />');" />
+		<input type="button" value="목록" onclick="goUrl('<c:url value="boardList" />');" />
 		<input type="submit" value="글쓰기" />
 	</p>
 	</form>

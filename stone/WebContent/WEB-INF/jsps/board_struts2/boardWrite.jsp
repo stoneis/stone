@@ -33,7 +33,7 @@
 </script>
 </head>
 <body>
-	<s:form name="boardWriteForm" action="boardWriteAction" method="post" onsubmit="return boardWriteCheck();"  theme="simple">
+	<s:form name="boardWriteForm" action="boardWrite" method="post" onsubmit="return boardWriteCheck();"  theme="simple">
 	<table border="1" summary="게시판 등록 폼">
 		<caption>게시판 등록 폼</caption>
 		<colgroup>
@@ -60,7 +60,7 @@
 		</tbody>
 	</table>
 	<p>
-		<input type="button" value="목록" onclick="goUrl('<s:url value="boardListAction" />');" />
+		<input type="button" value="목록" onclick="goUrl('<s:url value="boardList" />');" />
 		<s:submit value="글쓰기" />
 	</p>
 	</s:form>

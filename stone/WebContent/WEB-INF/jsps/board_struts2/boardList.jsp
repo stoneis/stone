@@ -27,7 +27,7 @@
 </script>
 </head>
 <body>
-	<s:form name="searchForm" action="boardListAction" method="get" onsubmit="return searchCheck();" theme="simple">
+	<s:form name="searchForm" action="boardList" method="get" onsubmit="return searchCheck();" theme="simple">
 	<p>
 		<s:select name="searchType" list="#{'ALL':'전체검색','SUBJECT':'제목','WRITER':'작성자','CONTENTS':'내용'}" />
 		<s:textfield name="searchText" />
@@ -62,7 +62,7 @@
 			<s:iterator value="boardList" status="status">
 			<tr>
 				<td align="center"><s:number name="totalCount  - (#status.index+1)+ 1 - (boardModel.pageNum - 1) * boardModel.listCount" type="integer"  /></td>
-				<td><a href="boardViewAction?num=${num}&pageNum=${pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}"><s:property value="subject" /></a></td>
+				<td><a href="boardView?num=${num}&pageNum=${pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}"><s:property value="subject" /></a></td>
 				<td align="center"><s:property value="writer" /></td>
 				<td align="center"><s:property value="regDate.substring(0,10)" /></td>
 				<td align="center"><s:property value="hit" /></td>
@@ -77,8 +77,8 @@
 		</tfoot>
 	</table>
 	<p>
-		<input type="button" value="목록" onclick="goUrl('<s:url value="boardListAction"/>');" />
-		<input type="button" value="글쓰기" onclick="goUrl('<s:url value="boardWriteFormAction"/>');" />
+		<input type="button" value="목록" onclick="goUrl('<s:url value="boardList"/>');" />
+		<input type="button" value="글쓰기" onclick="goUrl('<s:url value="boardWriteForm"/>');" />
 	</p>
 </body>
 </html>

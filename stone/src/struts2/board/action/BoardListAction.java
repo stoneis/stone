@@ -3,7 +3,7 @@ package struts2.board.action;
 import java.util.List;
 
 import model.board.BoardModel;
-import util.PageNavigatorStruts2;
+import util.PageNavigator;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -52,7 +52,7 @@ public class BoardListAction extends ActionSupport implements Preparable, ModelD
 		// 게시물 목록을 얻는 쿼리 실행
 		boardList = this.boardDAO.selectList(boardModel);
 		// 페이지 네비게이터
-		pageNavigator = new PageNavigatorStruts2().getPageNavigator(
+		pageNavigator = new PageNavigator().getPageNavigator(
 			totalCount, boardModel.getListCount(), boardModel.getPagePerBlock(), 
 			Integer.parseInt(pageNum), searchType, searchTextUTF8);
         return SUCCESS;

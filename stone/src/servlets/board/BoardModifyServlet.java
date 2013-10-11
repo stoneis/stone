@@ -19,7 +19,7 @@ import dao.board.BoardHibernateDAO;
  * @since 2013.07.09
  * @author stoneis.pe.kr
  */
-@WebServlet("/board/boardModifyServlet")
+@WebServlet("/servlet/board/boardModify")
 public class BoardModifyServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -92,7 +92,7 @@ public class BoardModifyServlet extends HttpServlet {
 		this.boardDAO.update(boardModel);
 		// 페이지 이동	
 		response.sendRedirect(
-			"boardViewServlet?num="+num+"&pageNum="+pageNum+"&searchType="+searchType+"&searchText="+searchTextUTF8_E);
+			"boardView?num="+num+"&pageNum="+pageNum+"&searchType="+searchType+"&searchText="+searchTextUTF8_E);
 	}
 
 }

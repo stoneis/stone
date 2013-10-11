@@ -18,7 +18,7 @@ import dao.board.BoardHibernateDAO;
  * @since 2013.07.09
  * @author stoneis.pe.kr
  */
-@WebServlet("/board/boardDeleteServlet")
+@WebServlet("/servlet/board/boardDelete")
 public class BoardDeleteServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -53,7 +53,7 @@ public class BoardDeleteServlet extends HttpServlet {
 		this.boardDAO.delete(boardModel);
 		// 페이지 이동
 		response.sendRedirect(
-			"boardListServlet?pageNum="+pageNum+"&searchType="+searchType+"&searchText="+searchTextUTF8_E);
+			"boardList?pageNum="+pageNum+"&searchType="+searchType+"&searchText="+searchTextUTF8_E);
 	}
 
 }

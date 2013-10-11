@@ -72,7 +72,7 @@
 				<c:forEach var="board" items="${boardList}" varStatus="status">
 			<tr>
 				<td align="center"><c:out value="${totalCount - (status.index+1) + 1 - (boardModel.pageNum - 1) * boardModel.listCount}" /></td>
-				<td><a href="<c:url value="/board/boardViewServlet?num=${board.num}&pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />"><c:out value="${board.subject}" /></a></td>
+				<td><a href="<c:url value="boardView?num=${board.num}&pageNum=${boardModel.pageNum}&amp;searchType=${boardModel.searchType}&amp;searchText=${boardModel.searchText}" />"><c:out value="${board.subject}" /></a></td>
 				<td align="center"><c:out value="${board.writer}" /></td>
 				<td align="center"><c:out value="${fn:substring(board.regDate, 0, 10)}" /></td>
 				<td align="center"><c:out value="${board.hit}" /></td>
@@ -88,8 +88,8 @@
 		</tfoot>
 	</table>
 	<p>
-		<input type="button" value="목록" onclick="goUrl('<c:url value="/board/boardListServlet"/>');" />
-		<input type="button" value="글쓰기" onclick="goUrl('<c:url value="/board/boardWriteServlet"/>');" />
+		<input type="button" value="목록" onclick="goUrl('<c:url value="boardList"/>');" />
+		<input type="button" value="글쓰기" onclick="goUrl('<c:url value="boardWrite"/>');" />
 	</p>
 </body>
 </html>

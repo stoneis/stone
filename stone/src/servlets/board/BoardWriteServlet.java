@@ -18,7 +18,7 @@ import dao.board.BoardHibernateDAO;
  * @since 2013.07.09
  * @author stoneis.pe.kr
  */
-@WebServlet("/board/boardWriteServlet")
+@WebServlet("/servlet/board/boardWrite")
 public class BoardWriteServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -63,7 +63,7 @@ public class BoardWriteServlet extends HttpServlet {
 		// 게시물 등록
 		this.boardDAO.insert(boardModel);
 		// 페이지 이동
-		response.sendRedirect("boardListServlet");
+		response.sendRedirect("boardList");
 	}
 
 }

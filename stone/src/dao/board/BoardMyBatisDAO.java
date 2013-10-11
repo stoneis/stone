@@ -7,6 +7,7 @@ import mybatis.MyBatis;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 
 
 /**
@@ -14,6 +15,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
  * @since 2013.07.24
  * @author stoneis.pe.kr
  */
+@Repository("boardMyBatisDAO")
 public class BoardMyBatisDAO implements BoardDAOImpl {
 	
 	/** Mybatis SQL 팩토리 */

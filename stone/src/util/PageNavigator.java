@@ -49,12 +49,12 @@ public class PageNavigator {
 				isPrev = false;
 			}
 			if(pageNum > 1){
-				sb.append("<a href=\"").append("boardListServlet?pageNum=1&amp;searchType="+searchType+"&amp;searchText="+searchText);
+				sb.append("<a href=\"").append("boardList?pageNum=1&amp;searchType="+searchType+"&amp;searchText="+searchText);
 				sb.append("\" title=\"<<\"><<</a>&nbsp;");
 			}
 			if (isPrev) {
 				int goPrevPage = startPage - pagePerBlock;			
-				sb.append("&nbsp;&nbsp;<a href=\"").append("boardListServlet?pageNum="+goPrevPage+"&amp;searchType="+searchType+"&amp;searchText="+searchText);
+				sb.append("&nbsp;&nbsp;<a href=\"").append("boardList?pageNum="+goPrevPage+"&amp;searchType="+searchType+"&amp;searchText="+searchText);
 				sb.append("\" title=\"<\"><</a>");
 			} else {
 				
@@ -63,20 +63,20 @@ public class PageNavigator {
 				if (i == pageNum) {
 					sb.append("<a href=\"#\"><strong>").append(i).append("</strong></a>&nbsp;&nbsp;");
 				} else {
-					sb.append("<a href=\"").append("boardListServlet?pageNum="+i+"&amp;searchType="+searchType+"&amp;searchText="+searchText);
+					sb.append("<a href=\"").append("boardList?pageNum="+i+"&amp;searchType="+searchType+"&amp;searchText="+searchText);
 					sb.append("\" title=\""+i+"\">").append(i).append("</a>&nbsp;&nbsp;");
 				}
 			}
 			if (isNext) {
 				int goNextPage = startPage + pagePerBlock;
 	
-				sb.append("<a href=\"").append("boardListServlet?pageNum="+goNextPage+"&amp;searchType="+searchType+"&amp;searchText="+searchText);
+				sb.append("<a href=\"").append("boardList?pageNum="+goNextPage+"&amp;searchType="+searchType+"&amp;searchText="+searchText);
 				sb.append("\" title=\">\">></a>");
 			} else {
 				
 			}
 			if(totalNumOfPage > pageNum){
-				sb.append("&nbsp;&nbsp;<a href=\"").append("boardListServlet?pageNum="+totalNumOfPage+"&amp;searchType="+searchType+"&amp;searchText="+searchText);
+				sb.append("&nbsp;&nbsp;<a href=\"").append("boardList?pageNum="+totalNumOfPage+"&amp;searchType="+searchType+"&amp;searchText="+searchText);
 				sb.append("\" title=\">>\">>></a>");
 			}
 			
